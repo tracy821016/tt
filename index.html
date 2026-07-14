@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>貪食蛇</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="hud" aria-label="遊戲狀態">
+        <div>
+          <p class="label">房間</p>
+          <p class="value room-code" id="roomCode">----</p>
+        </div>
+        <div>
+          <p class="label">玩家</p>
+          <p class="value" id="playerCount">0</p>
+        </div>
+        <div>
+          <p class="label">狀態</p>
+          <p class="value status" id="statusText">準備</p>
+        </div>
+      </section>
+
+      <section class="room-panel" aria-label="連線房間">
+        <label>
+          暱稱
+          <input id="playerName" maxlength="12" placeholder="玩家">
+        </label>
+        <label>
+          房間代碼
+          <input id="roomInput" maxlength="6" placeholder="例如 A1B2C3">
+        </label>
+        <button class="primary" id="createRoomButton" type="button">開新房間</button>
+        <button id="joinRoomButton" type="button">加入房間</button>
+      </section>
+
+      <section class="board-wrap" aria-label="貪食蛇遊戲區">
+        <canvas id="game" width="480" height="480" aria-label="貪食蛇遊戲畫面"></canvas>
+        <div class="overlay" id="overlay">
+          <h1>連線貪食蛇</h1>
+          <p>開房間或輸入代碼加入</p>
+          <button class="primary" id="startButton" type="button">開始遊戲</button>
+        </div>
+      </section>
+
+      <section class="scoreboard" id="scoreboard" aria-label="玩家分數"></section>
+
+      <section class="controls" aria-label="遊戲控制">
+        <button type="button" id="copyRoomButton">複製房號</button>
+        <button type="button" id="restartButton">重新開始</button>
+      </section>
+
+      <section class="touch-pad" aria-label="觸控方向鍵">
+        <button type="button" data-direction="up" aria-label="向上">↑</button>
+        <button type="button" data-direction="left" aria-label="向左">←</button>
+        <button type="button" data-direction="down" aria-label="向下">↓</button>
+        <button type="button" data-direction="right" aria-label="向右">→</button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
